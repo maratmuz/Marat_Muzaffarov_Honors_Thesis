@@ -28,6 +28,18 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
 
+% ---- Chapter / section heading sizes --------------------------------------
+% Tames the default report-class chapter-heading bulk. Tweak the \Large /
+% \large sizes if you want them even smaller.
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\Large\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
 % ---- Custom commands (deontic operators etc.) -----------------------------
 \newcommand{\Ob}[2]{O(#1 \mid #2)}     % O(X|A)
 \newcommand{\impl}{\rightarrow}
@@ -53,30 +65,18 @@
 % ---- Front matter ----------------------------------------------------------
 \input{sections/00_frontmatter}
 
-% ---- Global introduction ---------------------------------------------------
+% ---- Global introduction (unnumbered, sits before Chapter 1) --------------
 \input{sections/01_introduction}
 
 % =============================================================================
-%  PART 1 — Normative reasoning in out-of-the-box LLMs
+%  Chapter 1 — Normative reasoning in out-of-the-box LLMs
 % =============================================================================
-\part{Normative Reasoning in Out-of-the-Box LLMs}
-
-\input{sections/part1_llm_eval/01_intro}
-\input{sections/part1_llm_eval/02_background}
-\input{sections/part1_llm_eval/03_methods}
-\input{sections/part1_llm_eval/04_results}
-\input{sections/part1_llm_eval/05_discussion}
+\input{sections/chapter1_llm_eval/00_chapter}
 
 % =============================================================================
-%  PART 2 — Emergence of secondary norms in multi-agent systems
+%  Chapter 2 — Emergence of secondary norms in multi-agent systems
 % =============================================================================
-\part{Emergence of Secondary Norms in Multi-Agent Systems}
-
-\input{sections/part2_norm_emergence/01_intro}
-\input{sections/part2_norm_emergence/02_background}
-\input{sections/part2_norm_emergence/03_methods}
-\input{sections/part2_norm_emergence/04_results}
-\input{sections/part2_norm_emergence/05_discussion}
+\input{sections/chapter2_norm_emergence/00_chapter}
 
 % ---- Conclusion ------------------------------------------------------------
 \input{sections/99_conclusion}
