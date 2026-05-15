@@ -1,0 +1,87 @@
+% =============================================================================
+%  Marat Muzaffarov — Honors Thesis
+%  Main file: pulls in all section files via \input.
+%  Compile with pdflatex (or lualatex) + biber + pdflatex x2.
+% =============================================================================
+\documentclass[11pt,letterpaper,oneside]{report}
+
+% ---- Geometry / typography -------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---- Math / logic ----------------------------------------------------------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+
+% ---- Graphics, tables, code ------------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% ---- References / hyperlinks ----------------------------------------------
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{references.bib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+% ---- Custom commands (deontic operators etc.) -----------------------------
+\newcommand{\Ob}[2]{O(#1 \mid #2)}     % O(X|A)
+\newcommand{\impl}{\rightarrow}
+\newcommand{\AND}{\textsc{And}}
+\newcommand{\SI}{\textsc{SI}}
+\newcommand{\WO}{\textsc{WO}}
+\newcommand{\CA}{\textsc{CA}}
+\newcommand{\MEAN}{\textsc{Meaningful}}
+\newcommand{\MLESS}{\textsc{Meaningless}}
+\newcommand{\MIS}{\textsc{Misdirection}}
+
+% ---- Title -----------------------------------------------------------------
+\title{Normative Reasoning in Large Language Models and the
+       Emergence of Secondary Norms in Multi-Agent Systems}
+\author{Marat Muzaffarov}
+\date{May 2026}
+
+% =============================================================================
+\begin{document}
+
+\maketitle
+
+% ---- Front matter ----------------------------------------------------------
+\input{sections/00_frontmatter}
+
+% ---- Global introduction ---------------------------------------------------
+\input{sections/01_introduction}
+
+% =============================================================================
+%  PART 1 — Normative reasoning in out-of-the-box LLMs
+% =============================================================================
+\part{Normative Reasoning in Out-of-the-Box LLMs}
+
+\input{sections/part1_llm_eval/01_intro}
+\input{sections/part1_llm_eval/02_background}
+\input{sections/part1_llm_eval/03_methods}
+\input{sections/part1_llm_eval/04_results}
+\input{sections/part1_llm_eval/05_discussion}
+
+% =============================================================================
+%  PART 2 — Emergence of secondary norms in multi-agent systems
+% =============================================================================
+\part{Emergence of Secondary Norms in Multi-Agent Systems}
+
+\input{sections/part2_norm_emergence/01_intro}
+\input{sections/part2_norm_emergence/02_background}
+\input{sections/part2_norm_emergence/03_methods}
+\input{sections/part2_norm_emergence/04_results}
+\input{sections/part2_norm_emergence/05_discussion}
+
+% ---- Conclusion ------------------------------------------------------------
+\input{sections/99_conclusion}
+
+% ---- Bibliography ----------------------------------------------------------
+\printbibliography
+
+\end{document}
